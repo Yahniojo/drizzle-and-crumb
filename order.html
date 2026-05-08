@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order - Drizzle & Crumb</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="order.html">Order</a>
+</nav>
+
+<h1 style="text-align:center;">Place Your Order</h1>
+
+<div class="order">
+
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="text" id="phone" placeholder="Phone Number">
+  <textarea id="order" placeholder="Your Order"></textarea>
+
+  <br><br>
+
+  <button onclick="sendOrder()">Send Order</button>
+
+</div>
+
+<script>
+function sendOrder() {
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let order = document.getElementById("order").value;
+
+  let message = `Hi! I want to order:
+Name: ${name}
+Phone: ${phone}
+Order: ${order}`;
+
+  let url = "https://wa.me/13062417546?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
