@@ -10,32 +10,144 @@
 <nav>
   <a href="index.html">Home</a>
   <a href="menu.html">Menu</a>
-  <a href="order.html">Order</a>
+  <a href="checkout.html">Checkout</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<h1 style="text-align:center;">Our Menu</h1>
+<h1 class="page-title">Our Menu</h1>
 
+<!-- 🛒 CART -->
+<div class="cart">
+  <h2>🛒 Your Cart</h2>
+  <ul id="cart-items"></ul>
+  <p>Total: $<span id="total">0</span></p>
+</div>
+
+<!-- MENU -->
 <div class="menu">
 
+  <!-- WAFFLE -->
   <div class="menu-item">
     <img src="waffle1.jpg" alt="Classic Waffle">
     <h3>Classic Waffle</h3>
-    <p>Soft waffle with syrup drizzle</p>
+    <p>$8.99</p>
+
+    <button onclick="addToCart('Classic Waffle', 8.99)">
+      Add to Cart
+    </button>
   </div>
 
+  <!-- PANCAKE -->
   <div class="menu-item">
-    <img src="waffle2.jpg" alt="Chocolate Waffle">
-    <h3>Chocolate Waffle</h3>
-    <p>Chocolate syrup + toppings</p>
+    <img src="pancake1.jpg" alt="Classic Pancakes">
+    <h3>Classic Pancakes</h3>
+    <p>$9.99</p>
+
+    <button onclick="addToCart('Classic Pancakes', 9.99)">
+      Add to Cart
+    </button>
   </div>
 
+  <!-- PARFAIT -->
   <div class="menu-item">
-    <img src="waffle3.jpg" alt="Waffle on a Stick">
-    <h3>Waffle on a Stick</h3>
-    <p>Easy-to-eat waffle on a stick</p>
+    <img src="pancake2.jpg" alt="Parfait">
+    <h3>Parfait</h3>
+    <p>$11.99</p>
+
+    <button onclick="addToCart('Parfait', 11.99)">
+      Add to Cart
+    </button>
+  </div>
+
+  <!-- CAKE -->
+  <div class="menu-item">
+    <img src="cake1.jpg" alt="Vanilla Cake">
+    <h3>Vanilla Cake</h3>
+    <p>$20.99</p>
+
+    <button onclick="addToCart('Vanilla Cake', 20.99)">
+      Add to Cart
+    </button>
   </div>
 
 </div>
+
+<!-- CHECKOUT -->
+<div class="checkout-box">
+  <a href="checkout.html">
+    <button class="checkout-btn">Go To Checkout</button>
+  </a>
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || {};
+
+// ADD
+function addToCart(name, price) {
+
+  if (cart[name]) {
+    cart[name].quantity += 1;
+  } else {
+    cart[name] = {
+      price: price,
+      quantity: 1
+    };
+  }
+
+  updateCart();
+}
+
+// REMOVE
+function removeItem(name) {
+
+  if (cart[name]) {
+    cart[name].quantity -= 1;
+
+    if (cart[name].quantity <= 0) {
+      delete cart[name];
+    }
+  }
+
+  updateCart();
+}
+
+// UPDATE CART
+function updateCart() {
+
+  let list = document.getElementById("cart-items");
+  let totalEl = document.getElementById("total");
+
+  list.innerHTML = "";
+
+  let total = 0;
+
+  for (let item in cart) {
+
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+      ${item} x${cart[item].quantity}
+      - $${(cart[item].price * cart[item].quantity).toFixed(2)}
+      <button onclick="addToCart('${item}', ${cart[item].price})">+</button>
+      <button onclick="removeItem('${item}')">-</button>
+    `;
+
+    list.appendChild(li);
+
+    total += cart[item].price * cart[item].quantity;
+  }
+
+  totalEl.textContent = total.toFixed(2);
+
+  // SAVE CART
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+updateCart();
+
+</script>
 
 </body>
 </html>
