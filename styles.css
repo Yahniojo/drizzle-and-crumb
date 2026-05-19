@@ -229,3 +229,104 @@ button:hover {
   font-size: 20px;
   margin: 15px 0;
 }
+
+.confirmed-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.checkmark {
+  font-size: 80px;
+  color: green;
+  margin-bottom: 20px;
+}
+
+.confirmed-text {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.delivery-box {
+  background: #fff3e0;
+  padding: 25px;
+  border-radius: 15px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.delivery-time {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.status-box {
+  margin-top: 40px;
+}
+
+.status-step {
+  background: #f2f2f2;
+  padding: 15px;
+  margin: 10px auto;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.status-step.active {
+  background: #d4edda;
+}
+
+.summary-box {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 350px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.home-btn {
+  background: #ff7f50;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+}
+@media (max-width: 768px) {
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item {
+    width: 90%;
+  }
+
+  .cart {
+    width: 90%;
+    position: static;
+    margin: 20px auto;
+  }
+
+  .checkout-container,
+  .summary-box,
+  .delivery-box {
+    width: 90%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button {
+    width: 100%;
+  }
+
+}

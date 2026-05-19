@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Menu - Drizzle & Crumb</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -30,9 +31,26 @@
   <div class="menu-item">
     <img src="waffle1.jpg" alt="Classic Waffle">
     <h3>Classic Waffle</h3>
-    <p>$8.99</p>
+    <p>$7.99</p>
+<label>Syrup:</label>
 
-    <button onclick="addToCart('Classic Waffle', 8.99)">
+<select id="waffle-syrup">
+  <option>Chocolate</option>
+  <option>Strawberry</option>
+  <option>Caramel</option>
+</select>
+
+<br><br>
+
+<label>Topping:</label>
+
+<select id="waffle-topping">
+  <option>Oreos</option>
+  <option>Sprinkles</option>
+  <option>M&Ms</option>
+  <option>Biscoff</option>
+</select>
+    <button onclick="addCustomWaffle()">
       Add to Cart
     </button>
   </div>
@@ -42,7 +60,24 @@
     <img src="pancake1.jpg" alt="Classic Pancakes">
     <h3>Classic Pancakes</h3>
     <p>$9.99</p>
+<label>Syrup:</label>
 
+<select id="waffle-syrup">
+  <option>Chocolate</option>
+  <option>Strawberry</option>
+  <option>Caramel</option>
+</select>
+
+<br><br>
+
+<label>Topping:</label>
+
+<select id="waffle-topping">
+  <option>Oreos</option>
+  <option>Sprinkles</option>
+  <option>M&Ms</option>
+  <option>Biscoff</option>
+</select>
     <button onclick="addToCart('Classic Pancakes', 9.99)">
       Add to Cart
     </button>
@@ -50,7 +85,7 @@
 
   <!-- PARFAIT -->
   <div class="menu-item">
-    <img src="pancake2.jpg" alt="Parfait">
+    <img src="parfait1.jpg" alt="Parfait">
     <h3>Parfait</h3>
     <p>$11.99</p>
 
@@ -63,7 +98,7 @@
   <div class="menu-item">
     <img src="cake1.jpg" alt="Vanilla Cake">
     <h3>Vanilla Cake</h3>
-    <p>$20.99</p>
+    <p>$19.99</p>
 
     <button onclick="addToCart('Vanilla Cake', 20.99)">
       Add to Cart
